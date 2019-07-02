@@ -11,7 +11,8 @@ months = []
 
 
 # open csv file
-bank_csv = os.path.join("budget-data.csv")
+bank_csv = os.path.join("C:\\Users\\mehar\\Documents\\Python\\Python-Challenge\\Pybank\\budget-data.csv")
+
 with open(bank_csv,'r', newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
@@ -44,20 +45,18 @@ min_month = months[min_month_index]
 print("Financial Analysis")
 print("----------------------------------------")
 print(f"Total Months: {month_count}")
-print(f"Total Revenue: ${total_revenue}")
-print(f"Average Revenue Change: ${average_change}")
-print(f"Greatest Increase in Revenue: {max_month} (${max_change})")
-print(f"Greatest Decrease in Revenue: {min_month} (${min_change})")
+print(f"Total Revenue: ${total_revenue:,.2f}")
+print(f"Average Revenue Change: ${average_change:,.2f}")
+print(f"Greatest Increase in Revenue: {max_month} (${max_change:,.2f})")
+print(f"Greatest Decrease in Revenue: {min_month} (${min_change:,.2f})")
 
 
-#Print to file
-
-filepath = os.path.join("pybank_output.txt")
-with open(filepath,'w') as text:
-    text.write("Financial Analysis" + "\n")
-    text.write("----------------------------------------" + "\n")
-    text.write(f"Total Months: {month_count}" + "\n")
-    text.write(f"Total Revenue: ${total_revenue}" + "\n")
-    text.write(f"Average Revenue Change: ${average_change}" + "\n")
-    text.write(f"Greatest Increase in Revenue: {max_month} (${max_change})" + "\n")
-    text.write(f"Greatest Decrease in Revenue: {min_month} (${min_change})" + "\n")
+file = os.path.join("C:\\Users\\mehar\\Documents\\Python\\Python-Challenge\\Pybank\\pybank_output.txt")
+with open(file,'w') as pyb:
+    pyb.write("Financial Analysis" + "\n")
+    pyb.write("----------------------------------------" + "\n")
+    pyb.write(f"Total Months: {month_count}" + "\n")
+    pyb.write(f"Total Revenue: ${total_revenue:,.2f}" + "\n")
+    pyb.write(f"Average Revenue Change: ${average_change:,.2f}" + "\n")
+    pyb.write(f"Greatest Increase in Revenue: {max_month} (${max_change:,.2f})" + "\n")
+    pyb.write(f"Greatest Decrease in Revenue: {min_month} (${min_change:,.2f})" + "\n")

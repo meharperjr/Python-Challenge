@@ -10,7 +10,8 @@ candidate_votes = {}
 
 
 # open csv file
-election_csv = os.path.join('election_data.csv')
+election_csv = os.path.join("resources/election_data.csv")
+
 with open(election_csv,'r', newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
@@ -24,7 +25,6 @@ with open(election_csv,'r', newline="") as csvfile:
         else:
             candidate_votes[candidate] = 1
 
-
 for person, vote_count in candidate_votes.items():
     candidate_percentages[person] = '{0:.0%}'.format(vote_count / total_votes)
     if vote_count > winner_votes:
@@ -34,9 +34,9 @@ for person, vote_count in candidate_votes.items():
 # print out results
 
 print("Election Results")
-print(f"Total Votes: {total_votes}")
+print(f"Total Votes: {total_votes:,}")
 for person, vote_count in candidate_votes.items():
-    print(f"{person}: {candidate_percentages[person]} ({vote_count})")
+    print(f"{person}: {candidate_percentages[person]} ({vote_count:,})")
 print(f"Winner: {winner}")
 
 # save 
@@ -44,9 +44,9 @@ print(f"Winner: {winner}")
 filepath = os.path.join("pypoll_output.txt")
 with open(filepath,'w') as text:
  
-    text.write(f"Total Votes: {total_votes}" + "\n")
+    text.write(f"Total Votes: {total_votes:,}" + "\n")
 
     for person, vote_count in candidate_votes.items():
-        text.write(f"{person}: {candidate_percentages[person]} ({vote_count})" + "\n")
+        text.write(f"{person}: {candidate_percentages[person]} ({vote_count:,})" + "\n")
  
     text.write(f"Winner: {winner}" + "\n")
