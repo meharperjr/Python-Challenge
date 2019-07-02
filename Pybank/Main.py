@@ -11,7 +11,7 @@ months = []
 
 
 # open csv file
-bank_csv = os.path.join("C:\\Users\\mehar\\Documents\\Python\\Python-Challenge\\Pybank\\budget-data.csv")
+bank_csv = os.path.join("resources/budget-data.csv")
 
 with open(bank_csv,'r', newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
